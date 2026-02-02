@@ -154,7 +154,7 @@ const components: any = {
       {...props}
     />
   ),
-  pre: ({ className, ...props }) => (
+  pre: ({ className, ...props }: any) => (
     <pre
       className={clsx(
         "mt-6 mb-4 overflow-x-auto rounded-lg bg-zinc-900 py-4",
@@ -163,7 +163,7 @@ const components: any = {
       {...props}
     />
   ),
-  code: ({ className, ...props }) => (
+  code: ({ className, ...props }: any) => (
     <code
       className={clsx(
         "relative rounded border border-zinc-800 bg-zinc-900/60 py-[0.2rem] px-[0.3rem] font-mono text-sm text-zinc-100",
