@@ -293,3 +293,81 @@ export const MagneticButton = ({
     </button>
   );
 };
+
+// Animated MDX Content
+export const AnimatedMdxContent = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!contentRef.current) return;
+
+    const ctx = gsap.context(() => {
+      // Animate all headings
+      gsap.from(
+        contentRef.current?.querySelectorAll("h1, h2, h3, h4, h5, h6") || [],
+        {
+          scrollTrigger: {
+            trigger: contentRef.current,
+            start: "top 70%",
+            toggleActions: "play none none none",
+          },
+          opacity: 0,
+          y: 30,
+          stagger: 0.15,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+      );
+
+      // Animate paragraphs
+      gsap.from(contentRef.current?.querySelectorAll("p, li") || [], {
+        scrollTrigger: {
+          trigger: contentRef.current,
+          start: "top 70%",
+          toggleActions: "play none none none",
+        },
+        opacity: 0,
+        y: 20,
+        stagger: 0.05,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+
+      // Animate code blocks
+      gsap.from(contentRef.current?.querySelectorAll("pre, code") || [], {
+        scrollTrigger: {
+          trigger: contentRef.current,
+          start: "top 70%",
+          toggleActions: "play none none none",
+        },
+        opacity: 0,
+        x: -20,
+        stagger: 0.1,
+        duration: 0.7,
+        ease: "power2.out",
+      });
+
+      // Animate images
+      gsap.from(contentRef.current?.querySelectorAll("img") || [], {
+        scrollTrigger: {
+          trigger: contentRef.current,
+          start: "top 70%",
+          toggleActions: "play none none none",
+        },
+        opacity: 0,
+        scale: 0.95,
+        stagger: 0.15,
+        duration: 0.9,
+        ease: "power3.out",
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
+  return <div ref={contentRef}>{children}</div>;
+};
