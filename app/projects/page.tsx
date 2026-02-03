@@ -67,7 +67,7 @@ export default async function ProjectsPage() {
             <AnimatedSection delay={0.2}>
               <Card>
                 <Link href={`/projects/${featured.slug}`}>
-                  <article className="relative w-full h-full p-4 md:p-8">
+                  <article className="relative w-full h-full p-4 md:p-8 flex flex-col">
                     <div className="flex items-center justify-between gap-2">
                       <div className="text-xs text-zinc-100">
                         {featured.date ? (
@@ -96,12 +96,18 @@ export default async function ProjectsPage() {
                     >
                       {featured.title}
                     </h2>
-                    <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
+                    <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300 flex-grow">
                       {featured.description}
                     </p>
-                    <div className="absolute bottom-4 md:bottom-8">
-                      <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
-                        Read more <span aria-hidden="true">&rarr;</span>
+                    <div className="mt-8 pt-4 border-t border-zinc-800/50">
+                      <p className="text-zinc-200 group-hover:text-white">
+                        Read more{" "}
+                        <span
+                          className="transition-transform duration-300 group-hover:translate-x-1 inline-block"
+                          aria-hidden="true"
+                        >
+                          &rarr;
+                        </span>
                       </p>
                     </div>
                   </article>

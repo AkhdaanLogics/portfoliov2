@@ -98,20 +98,25 @@ export const StaggeredGrid = ({
     if (!gridRef.current) return;
 
     const ctx = gsap.context(() => {
-      const items = gridRef.current?.children;
-      if (!items) return;
+      const columns = gridRef.current?.children;
+      if (!columns) return;
 
-      gsap.from(Array.from(items), {
-        scrollTrigger: {
-          trigger: gridRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-        opacity: 0,
-        y: 60,
-        stagger: 0.1,
-        duration: 0.6,
-        ease: "power2.out",
+      // Animate each column's cards individually as they enter viewport
+      Array.from(columns).forEach((column) => {
+        const cards = column.children;
+        Array.from(cards).forEach((card) => {
+          gsap.from(card, {
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+            opacity: 0,
+            y: 40,
+            duration: 0.6,
+            ease: "power2.out",
+          });
+        });
       });
     });
 
@@ -306,63 +311,85 @@ export const AnimatedMdxContent = ({
     if (!contentRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Animate all headings
-      gsap.from(
-        contentRef.current?.querySelectorAll("h1, h2, h3, h4, h5, h6") || [],
-        {
+      // Animate each heading individually when it enters viewport
+      const headings =
+        contentRef.current?.querySelectorAll("h1, h2, h3, h4, h5, h6") || [];
+      headings.forEach((heading) => {
+        gsap.from(heading, {
           scrollTrigger: {
-            trigger: contentRef.current,
-            start: "top 70%",
+            trigger: heading,
+            start: "top 85%",
             toggleActions: "play none none none",
           },
           opacity: 0,
           y: 30,
-          stagger: 0.15,
           duration: 0.8,
           ease: "power3.out",
-        },
-      );
-
-      // Animate paragraphs
-      gsap.from(contentRef.current?.querySelectorAll("p, li") || [], {
-        scrollTrigger: {
-          trigger: contentRef.current,
-          start: "top 70%",
-          toggleActions: "play none none none",
-        },
-        opacity: 0,
-        y: 20,
-        stagger: 0.05,
-        duration: 0.6,
-        ease: "power2.out",
+        });
       });
 
-      // Animate code blocks
-      gsap.from(contentRef.current?.querySelectorAll("pre, code") || [], {
-        scrollTrigger: {
-          trigger: contentRef.current,
-          start: "top 70%",
-          toggleActions: "play none none none",
-        },
-        opacity: 0,
-        x: -20,
-        stagger: 0.1,
-        duration: 0.7,
-        ease: "power2.out",
+      // Animate each paragraph individually
+      const paragraphs = contentRef.current?.querySelectorAll("p") || [];
+      paragraphs.forEach((p) => {
+        gsap.from(p, {
+          scrollTrigger: {
+            trigger: p,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+          opacity: 0,
+          y: 20,
+          duration: 0.6,
+          ease: "power2.out",
+        });
       });
 
-      // Animate images
-      gsap.from(contentRef.current?.querySelectorAll("img") || [], {
-        scrollTrigger: {
-          trigger: contentRef.current,
-          start: "top 70%",
-          toggleActions: "play none none none",
-        },
-        opacity: 0,
-        scale: 0.95,
-        stagger: 0.15,
-        duration: 0.9,
-        ease: "power3.out",
+      // Animate each list item individually
+      const listItems = contentRef.current?.querySelectorAll("li") || [];
+      listItems.forEach((li) => {
+        gsap.from(li, {
+          scrollTrigger: {
+            trigger: li,
+            start: "top 90%",
+            toggleActions: "play none none none",
+          },
+          opacity: 0,
+          x: -15,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+      });
+
+      // Animate code blocks individually
+      const codeBlocks = contentRef.current?.querySelectorAll("pre") || [];
+      codeBlocks.forEach((pre) => {
+        gsap.from(pre, {
+          scrollTrigger: {
+            trigger: pre,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+          opacity: 0,
+          x: -20,
+          duration: 0.7,
+          ease: "power2.out",
+        });
+      });
+
+      // Animate images individually
+      const images = contentRef.current?.querySelectorAll("img") || [];
+      images.forEach((img) => {
+        gsap.from(img, {
+          scrollTrigger: {
+            trigger: img,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+          opacity: 0,
+          scale: 0.95,
+          duration: 0.9,
+          ease: "power3.out",
+        });
       });
     });
 

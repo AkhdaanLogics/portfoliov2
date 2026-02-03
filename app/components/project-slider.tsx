@@ -13,29 +13,21 @@ export const ProjectSlider: React.FC<ProjectSliderProps> = ({
   title = "",
 }) => {
   const [index, setIndex] = useState(0);
-  const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
-    if (!hovered || images.length <= 1) return;
+    if (images.length <= 1) return;
 
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
     }, 2000);
 
     return () => clearInterval(interval);
-  }, [hovered, images.length]);
+  }, [images.length]);
 
   if (!images || images.length === 0) return null;
 
   return (
-    <div
-      className="w-full rounded-2xl overflow-hidden relative my-6"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => {
-        setHovered(false);
-        setIndex(0);
-      }}
-    >
+    <div className="w-full rounded-2xl overflow-hidden relative my-6">
       <motion.div
         className="flex w-full"
         animate={{ x: `-${index * 100}%` }}
