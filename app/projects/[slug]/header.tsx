@@ -78,7 +78,7 @@ export const Header: React.FC<Props> = ({ project, views }) => {
   }, []);
 
   return (
-    <header ref={ref} className="relative isolate overflow-hidden bg-black">
+    <header ref={ref} className="relative overflow-hidden bg-black">
       <div
         className={`fixed inset-x-0 top-0 z-50 backdrop-blur lg:backdrop-blur-none duration-200 border-b lg:bg-transparent ${
           isIntersecting
