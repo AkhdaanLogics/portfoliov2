@@ -42,6 +42,12 @@ export const Project = defineDocumentType(() => ({
     repository: {
       type: "string",
     },
+    featured: {
+      type: "boolean",
+    },
+    hot: {
+      type: "boolean",
+    },
     images: {
       type: "list",
       of: { type: "string" },
