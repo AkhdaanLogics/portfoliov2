@@ -1,54 +1,130 @@
 ---
 title: Bali Trips
-description: Modern travel booking landing page showcasing Bali destinations with interactive UI and seamless user experience
+description: Modern travel booking platform showcasing Bali destinations with interactive UI, booking management, and seamless user experience
 date: "2025-08-12"
 url: https://balitrips.vercel.app
 published: true
 repository: AkhdaanLogics/bali_trips
 images:
-  - /bali-trips.png
+  - /bali1.png
+  - /bali2.png
+  - /bali3.png
+  - /bali4.png
+  - /bali5.png
+  - /bali6.png
 ---
 
 ## Overview
 
-A beautiful and modern landing page for Bali travel packages. The site showcases popular Bali destinations with stunning visuals, smooth animations, and an intuitive user interface designed to inspire travelers and facilitate bookings.
+A comprehensive frontend travel booking platform for Bali tour packages. The application features a complete user interface for browsing destinations, managing bookings, and exploring Bali's most popular attractions with stunning visuals and smooth animations.
 
 <ProjectSlider />
 
 ## Key Features
 
-- **Stunning Hero Section**: Eye-catching landing page with hero image and call-to-action
-- **Destination Gallery**: Interactive cards displaying popular Bali attractions
-- **Package Showcase**: Featured travel packages with pricing and itineraries
-- **Booking Interface**: Smooth user flow for package selection and booking
-- **Responsive Design**: Fully optimized for mobile, tablet, and desktop
-- **Smooth Animations**: GSAP animations for engaging user experience
-- **Tourist Reviews**: Customer testimonials and ratings section
-- **Contact Section**: Easy way to get in touch for inquiries
+### Home Page
+
+- **Hero Section**: Eye-catching landing with "Explore the Magic of Bali" tagline
+- **Call-to-Action Buttons**: Browse Destinations and View Packages
+- **Statistics Dashboard**: 50+ Destinations, 10K+ Happy Travelers, 5K+ Tours Completed, 100+ Expert Guides
+- **Quick Actions Section**: Easy navigation to key features
+
+### Destinations Catalog
+
+- **Advanced Search**: Search bar for finding specific destinations
+- **Smart Filtering**: Filter by Most Popular, Cultural, Beach, Nature, Adventure categories
+- **Destination Cards**: Beautiful cards displaying location images, ratings, duration, reviews, and pricing
+- **Featured Destinations**: Kuta Beach, Nusa Penida Island, Bali Safari & Marine Park, Uluwatu Temple, and more
+- **Detailed Information**: Each destination shows location, duration, review count, and price per person
+- **Action Buttons**: Quick access to Details and Book options
+
+### Shopping Cart
+
+- **Cart Management**: Add and manage multiple tour selections
+- **Date Selection**: Interactive booking date picker
+- **Guest Counter**: Adjust number of guests with increment/decrement controls
+- **Price Breakdown**: Detailed order summary with subtotal, tax (11%), and service fees
+- **Real-time Calculation**: Dynamic pricing based on number of guests
+- **Add More Tours**: Option to continue shopping
+- **Order Summary**: Clear display of total costs and booking details
+- **Booking Benefits**: Free cancellation, instant confirmation, secure payment indicators
+
+### Checkout Process
+
+- **Multi-Step Flow**: Two-step checkout with progress indicator stepper
+- **Step 1 - Personal Information**:
+  - Full Name input field with validation
+  - Email address field
+  - Phone Number field (international format)
+  - Special Requests textarea (optional field)
+  - Continue to Payment button
+- **Step 2 - Payment Method**:
+  - Payment options: Card, Bank Transfer, E-Wallet
+  - Bank selection dropdown (BCA, Mandiri, BNI, etc.)
+  - Clear payment instructions with numbered steps
+  - Payment confirmation button with total amount
+  - SSL encryption security indicator
+- **Persistent Order Summary**: Sidebar showing tour details, guest count, and price breakdown throughout checkout
+- **Form Validation**: Real-time validation for required fields
+- **Progress Tracking**: Visual stepper showing completed and current steps
+
+### User Profile
+
+- **Profile Dashboard**: User information display with profile picture
+- **Member Details**: Membership date, email, and contact information
+- **Booking Statistics**: Total bookings and upcoming tours counter
+- **My Bookings Section**: Comprehensive booking management with filters (All, Upcoming, Past)
+- **Booking Cards**: Display of all bookings with order ID, date, guests, and total price
+- **Booking Status**: Visual indicators for upcoming and completed bookings
+- **Quick Actions**: View Details and Download E-Ticket buttons for each booking
+- **Profile Management**: Edit Profile and Logout options
+
+### UI/UX Features
+
+- **Responsive Design**: Fully optimized for mobile, tablet, and desktop devices
+- **Smooth Animations**: Polished transitions and interactions
+- **Interactive Elements**: Hover effects, smooth scrolling, and dynamic state changes
+- **Modern Navigation**: Clean header with Home, Destinations, Cart, and Profile links
+- **Language Selector**: English language support indicator
+- **Notification Badge**: Cart item counter
 
 ## Technology Stack
 
-- **Frontend**: React & Next.js
+- **Frontend Framework**: React & Next.js
 - **Styling**: Tailwind CSS
+- **State Management**: React Hooks (useState, useContext)
 - **Animations**: GSAP & Framer Motion
 - **UI Components**: Custom React components
+- **Icons**: Lucide React / React Icons
 - **Deployment**: Vercel
+- **Type**: Frontend-only application (no backend/database)
 
 ## Design Highlights
 
-The landing page features a modern, clean design with:
+The platform features a modern, premium design with:
 
-- Gradient backgrounds and smooth transitions
-- Optimized images of Bali's beautiful locations
-- Interactive hover effects on destination cards
-- Scroll-triggered animations for visual interest
-- Fully accessible navigation and forms
+- Teal/turquoise brand color (#0D9488) with consistent theming
+- High-quality destination photography and imagery
+- Card-based layout for destinations and bookings
+- Clean typography with serif headings and sans-serif body text
+- Gradient overlays on hero images
+- Interactive hover states on all clickable elements
+- Smooth page transitions and micro-interactions
 - Mobile-first responsive approach
+- Accessible color contrast and navigation
+- Badge system for booking status and categories
 
-## Future Enhancements
+## Technical Implementation
 
-- Backend integration for real booking system
-- User authentication and profile management
-- Payment gateway integration
-- Admin dashboard for managing packages
-- Multi-language support
+As a frontend-only application, this project demonstrates:
+
+- Component-based architecture with reusable UI elements
+- Client-side state management for cart and booking data
+- Local storage integration for persisting user selections
+- Mock data implementation for destinations and bookings
+- Conditional rendering for different booking states
+- Form validation for booking inputs
+- Multi-step form handling with stepper navigation
+- Responsive grid and flexbox layouts
+- CSS-in-JS styling patterns
+- Form state management across checkout steps
