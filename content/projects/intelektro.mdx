@@ -1,0 +1,59 @@
+---
+title: Intelektro
+description: AI chatbot focused on contextual conversations, user profile management, and interactive experiences with location data and captcha security
+date: "2026-02-07"
+url: https://intelektro.vercel.app
+published: true
+repository: AkhdaanLogics/zephyr-chatbot
+images:
+  - /int1.png
+  - /int2.png
+  - /int3.png
+---
+
+## Overview
+
+Intelektro is an AI chatbot that helps users get fast, personalized answers with location data (country, state, city) and consistent conversation flow. The project focuses on relevant responses, lightweight onboarding, and secure access.
+
+<ProjectSlider />
+
+## Key Features
+
+### Conversational Core
+
+- **Context-aware chat**: Keeps conversation context so replies stay coherent
+- **Prompt orchestration**: Prompt rules to keep tone and response boundaries consistent
+- **Session history**: Chat history is saved and can be resumed anytime
+
+### User Experience
+
+- **Lightweight onboarding**: Quick entry and start chatting immediately
+- **User profiles**: Stores preferences and basic user details
+- **State & City lookup**: Location selection for personalized responses
+
+### Security & Reliability
+
+- **Captcha protection**: User validation with Cloudflare Turnstile
+- **Rate control**: Request limiting to prevent abuse
+- **Graceful errors**: Clear error messages when external services fail
+
+## Technology Stack
+
+- **Frontend**: Next.js + React
+- **Styling**: Tailwind CSS
+- **Auth & Storage**: Firebase Authentication + Firestore
+- **AI Inference**: Groq API
+- **Data Enrichment**: CountryStateCity API
+- **Captcha**: Cloudflare Turnstile
+- **Deployment**: Vercel
+
+## Integrations
+
+- **Firebase/Firestore**: Stores accounts, profiles, and conversation history
+- **Groq**: AI model provider for fast, efficient responses
+- **CountryStateCity**: Location data to enrich user context
+- **Cloudflare**: Captcha protection on first access or suspicious activity
+
+## Notes
+
+Next focus is adding automatic conversation summaries and scenario-based prompt templates for more directed chats.
