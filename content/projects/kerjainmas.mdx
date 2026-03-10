@@ -1,0 +1,82 @@
+---
+title: KerjainMas
+description: Task-jockey and document checking platform with queue tracking, admin operations, voucher system, and real-time status updates
+date: "2026-03-10"
+url: https://kerjainmas.vercel.app
+published: true
+featured: true
+repository: /
+images:
+  - /kerjainmas1.png
+  - /kerjainmas2.png
+  - /kerjainmas3.png
+  - /kerjainmas4.png
+  - /kerjainmas5.png
+---
+
+## Overview
+
+KerjainMas is a production-ready academic service platform built to handle two core workflows in one system:
+
+- **Order Flow** for assignment support with queue management and jockey assignment
+- **Checks Flow** for AI/plagiarism document checks with payment validation and admin review
+
+The project is optimized for free-tier deployment using Vercel and Supabase while still maintaining clean architecture, role-based admin controls, and real-time status updates.
+
+<ProjectSlider />
+
+## Key Features
+
+- **Multi-Step Order Form**: Structured form flow with education-level gating, complexity inputs, milestones, and draft persistence
+- **Queue & Progress Tracking**: Customers can monitor queue number, queue position, estimated wait time, and order status in real time
+- **Admin Dashboard**: Unified panel for order operations, check request processing, voucher management, and jockey configuration
+- **Jockey Capability Mapping**: Education levels are configurable per jockey and reflected directly in customer-side availability
+- **Voucher Management System**: Create, validate, and track voucher usage with expiry and usage limits
+- **File Upload Pipeline**: Upload support for assignment files, report templates, and additional attachments via Supabase Storage
+- **Check Request Payment Flow**: Customer payment submission and admin validation flow for AI/plagiarism service requests
+- **Feedback & Reward Flow**: Post-service feedback with reward voucher validation workflow
+- **Privacy-Conscious Status API**: Public status payload is minimized to reduce unnecessary exposure of customer identity fields
+
+## Technology Stack
+
+- **Next.js 16 (App Router)**: SSR + route handlers + modern React architecture
+- **React 19 + TypeScript**: Strong typing and scalable component design
+- **Tailwind CSS v4**: Utility-first styling with responsive layouts
+- **Supabase**:
+  - PostgreSQL for transactional data
+  - Auth for admin access control
+  - Storage for file uploads
+  - Realtime subscriptions for live updates
+- **Zod**: Runtime request validation in API handlers
+- **Framer Motion**: Scroll reveal animations and UI polish
+- **Vercel**: Deployment and hosting
+
+## Highlights
+
+**Production-Oriented, Free-Tier Friendly**
+The architecture is intentionally scoped for Vercel + Supabase free tiers while still covering practical operational needs.
+
+**Operational Reliability Improvements**
+Includes fallback-safe API behavior, migration-safe patterns, and admin-side auto-heal logic for legacy payment state mismatches.
+
+**Better UX for Real Users**
+Form fields are progressively clarified with labels/helper text, disabled-state guidance, and resume-friendly flows for interrupted user sessions.
+
+**Realtime Visibility**
+Queue and status updates are powered by Supabase Realtime plus periodic fallback polling for robust client synchronization.
+
+**Modular Backend Logic**
+Route handlers are split by domain (orders, checks, vouchers, admin actions), making the codebase easier to extend.
+
+## Challenges & Learning
+
+Building KerjainMas involved several real-world engineering challenges:
+
+- Designing a queue-driven workflow that remains simple for users and manageable for admins
+- Extending the data model for order complexity without breaking existing order APIs
+- Handling migration edge cases (for example, Postgres function return-type changes requiring drop/recreate)
+- Fixing hydration mismatch caused by browser-only draft state in client components
+- Balancing privacy requirements with useful status visibility for end users
+- Creating admin tooling that remains effective without introducing unnecessary infrastructure cost
+
+KerjainMas continues to evolve, especially around payment automation and post-payment process optimization.
